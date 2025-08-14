@@ -9,6 +9,9 @@ BLOCKDEVICES=$(lsblk --json -b | jq .blockdevices)
 NVME0=$(echo "$NVMEs" | jq .[0].name)
 NVME1=$(echo "$NVMEs" | jq .[1].name)
 
+shred --verbose --zero --remove --iterations 2 /dev/"$NVME0"
+shred --verbose --zero --remove --iterations 2 /dev/"$NVME1"
+
 NVME0_SIZE_BYTES=$(($(echo "$BLOCKDEVICES" | jq .[0].size) + 0))
 NVME1_SIZE_BYTES=$(($(echo "$BLOCKDEVICES" | jq .[1].size) + 0))
 
