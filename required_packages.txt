@@ -1,4 +1,4 @@
-amd-ucode
+intel-ucode
 ark
 base
 base-devel
