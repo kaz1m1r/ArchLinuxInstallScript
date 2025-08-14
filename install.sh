@@ -78,12 +78,10 @@ mkdir /mnt/tmp && mount /dev/vg0/tmp /mnt/tmp
 # Place config files
 rm -rf /mnt/etc/mkinitcpio.conf
 rm -rf /mnt/etc/default/grub
+rm -rf /mnt/etc/pacman.conf
 cp mkinitcpio.conf /mnt/tmp
 cp grub /mnt/tmp
-
-# Edit pacman.conf
-echo "[multilib]" >> /mnt/etc/pacman.conf
-echo "Include = /etc/pacman.d/mirrorlist" >> /mnt/etc/pacman.conf
+cp pacman.conf /mnt/etc/pacman.conf
 
 # install arch
 pacstrap /mnt - < ./required_packages
