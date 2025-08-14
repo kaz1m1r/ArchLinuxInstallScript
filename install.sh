@@ -109,6 +109,9 @@ grub-mkconfig -o /boot/grub/grub.cfg
 # Configure root user password
 passwd
 
-# Install DE 
+# Start services 
 systemctl enable sddm.service
 systemctl enable NetworkManager.service
+systemctl enable reflector.service
+systemctl enable fstrim.timer
+systemctl enable paccache.timer
